@@ -44,7 +44,7 @@ export default {
         alert('所有人都已中过奖! 请到设置清空中奖纪录!')
         return
       }
-      this.timer = setInterval(this.refresh, 50)
+      this.timer = setInterval(this.refresh, 100)
     },
     stop () {
       clearInterval(this.timer)
@@ -61,7 +61,10 @@ export default {
     readNumbers () {
       const numStr = localStorage.getItem("numbers")
       if (numStr) this.numbers = numStr.split('\n').filter((item) => !!item)
-      if (this.numbers.length === 0) alert('抽奖池为空')
+      if (this.numbers.length === 0) {
+        alert('抽奖池为空! 请到右上角设置中添加!')
+        this.numbers = ['11', '22', '33', '44', '55', '66', '77', '88', '99']
+      }
     },
     readHistory () {
       const history = localStorage.getItem("history")
@@ -91,7 +94,6 @@ h2 {
 }
 
 .button.is-large {
-  font-weight: bold;
   width: 100px;
 }
 

@@ -28,7 +28,7 @@ export default {
       return parseInt(Math.random() * (maxNum - minNum + 1) + minNum)
     },
     start () {
-      this.timer = setInterval(this.refresh, 50)
+      this.timer = setInterval(this.refresh, 100)
     },
     stop () {
       clearInterval(this.timer)
@@ -60,7 +60,6 @@ h2 {
 }
 
 .button.is-large {
-  font-weight: bold;
   width: 100px;
 }
 
