@@ -1,16 +1,12 @@
 <template>
   <div id="app">
     <div class="background"></div>
-    <nav class="navbar" role="navigation" aria-label="main navigation">
-      <div class="navbar-menu">
-        <div class="navbar-end">
-          <a class="navbar-item"
-              v-for="component in components"
-              :key="component.path"
-              @click="page = component.path">
-            {{ component.name }}
-          </a>
-        </div>
+    <nav class="nav">
+      <div class="nav-item"
+          v-for="component in components"
+          :key="component.path"
+          @click="page = component.path">
+        {{ component.name }}
       </div>
     </nav>
     <div class="component">
@@ -75,20 +71,23 @@ body {
   color: #ffffff;
 }
 
-.navbar {
+.nav {
   background-color: transparent;
+  position: fixed;
+  top: 0;
+  right: 10px;
+  display: flex;
 }
 
-.navbar-end {
-  margin-right: 10px;
-}
-
-.navbar-item {
+.nav .nav-item {
+  cursor: pointer;
+  width: 4rem;
+  height: 3.25rem;
+  line-height: 3.25rem;
   color: #ffffff;
 }
 
-a.navbar-item:hover {
-  color: #ffffff;
+.nav .nav-item:hover {
   background-color: rgba(255, 255, 255, 0.5);
 }
 
@@ -105,9 +104,9 @@ a.navbar-item:hover {
 }
 
 ::selection {
-  background-color: transparent;
+  background-color: rgba(255, 255, 0, 0.5);
 }
 ::-moz-selection {
-  background-color: transparent;
+  background-color: rgba(255, 255, 0, 0.5);
 }
 </style>

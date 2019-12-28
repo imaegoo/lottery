@@ -59,6 +59,11 @@ h2 {
   margin-bottom: 50px;
 }
 
+.button.is-large {
+  font-weight: bold;
+  width: 100px;
+}
+
 .table {
   position: fixed;
   left: 20px;

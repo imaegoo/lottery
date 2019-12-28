@@ -30,11 +30,20 @@ export default {
       history: []
     }
   },
+  computed: {
+    neverWin () {
+      return this.numbers.filter((item) => !this.history.some((historyItem) => historyItem === item))
+    }
+  },
   methods: {
     random (minNum, maxNum) {
       return parseInt(Math.random() * (maxNum - minNum + 1) + minNum)
     },
     start () {
+      if (this.neverWin.length < 1) {
+        alert('所有人都已中过奖! 请到设置清空中奖纪录!')
+        return
+      }
       this.timer = setInterval(this.refresh, 50)
     },
     stop () {
@@ -43,7 +52,7 @@ export default {
       this.saveHistory()
     },
     refresh () {
-      this.current = this.numbers[this.random(0, this.numbers.length - 1)]
+      this.current = this.neverWin[this.random(0, this.neverWin.length - 1)]
     },
     saveHistory () {
       this.history.push(this.current)
@@ -79,6 +88,11 @@ h2 {
 .current {
   font-size: 200px;
   margin-bottom: 50px;
+}
+
+.button.is-large {
+  font-weight: bold;
+  width: 100px;
 }
 
 .table {
