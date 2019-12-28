@@ -1,17 +1,25 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Setting />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Setting from './components/Setting.vue'
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    Setting
+  },
+  data () {
+    return {
+      page: ''
+    }
+  },
+  mounted () {
+    this.page = 'setting'
   }
 }
 </script>
