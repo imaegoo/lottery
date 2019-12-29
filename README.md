@@ -14,7 +14,7 @@ http://lottery.imaegoo.com/
 
 ## Dependency
 1. Vue.js
-2. 没了...
+2. Bulma
 
 ## Project setup
 ```
