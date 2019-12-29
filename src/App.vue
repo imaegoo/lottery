@@ -11,7 +11,6 @@
     </nav>
     <div class="component">
       <Setting v-if="page === 'Setting'" />
-      <Call v-if="page === 'Call'" />
       <Lottery v-if="page === 'Lottery'" />
     </div>
   </div>
@@ -19,12 +18,10 @@
 
 <script>
 import Setting from './components/Setting.vue'
-import Call from './components/Call.vue'
 import Lottery from './components/Lottery.vue'
 
 const Components = [
   { path: 'Lottery', name: '抽奖' },
-  { path: 'Call', name: '拨号' },
   { path: 'Setting', name: '设置' }
 ]
 
@@ -32,7 +29,6 @@ export default {
   name: 'app',
   components: {
     Setting,
-    Call,
     Lottery
   },
   data () {

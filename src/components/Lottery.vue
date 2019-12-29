@@ -1,7 +1,7 @@
 <template>
   <div class="lottery">
     <div class="current">{{ current }}</div>
-    <button class="button is-large is-primary" v-if="!timer" @click="start">开始</button>
+    <button class="button is-large is-warning" v-if="!timer" @click="start">开始</button>
     <button class="button is-large is-danger" v-if="timer" @click="stop">停</button>
     <table class="table" v-if="history.length > 0">
       <thead>
