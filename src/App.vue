@@ -10,30 +10,34 @@
       </div>
     </nav>
     <div class="component">
-      <Setting v-if="page === 'Setting'" />
-      <Call v-if="page === 'Call'" />
       <Lottery v-if="page === 'Lottery'" />
+      <Call v-if="page === 'Call'" />
+      <Rotate v-if="page === 'Rotate'" />
+      <Setting v-if="page === 'Setting'" />
     </div>
   </div>
 </template>
 
 <script>
-import Setting from './components/Setting.vue'
-import Call from './components/Call.vue'
 import Lottery from './components/Lottery.vue'
+import Call from './components/Call.vue'
+import Rotate from './components/Rotate.vue'
+import Setting from './components/Setting.vue'
 
 const Components = [
   { path: 'Lottery', name: '抽奖' },
   { path: 'Call', name: '拨号' },
+  { path: 'Rotate', name: '转盘' },
   { path: 'Setting', name: '设置' }
 ]
 
 export default {
   name: 'app',
   components: {
-    Setting,
+    Lottery,
     Call,
-    Lottery
+    Rotate,
+    Setting
   },
   data () {
     return {
@@ -63,6 +67,7 @@ body {
   left: 0;
   right: 0;
   background-image: url('./assets/bg-1.png');
+  background-size: cover;
 }
 
 #app {

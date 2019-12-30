@@ -1,7 +1,7 @@
 <template>
   <div class="lottery">
     <div class="current">{{ current }}</div>
-    <button class="button is-large is-primary" v-if="!timer" @click="start">开始</button>
+    <button class="button is-large is-warning" v-if="!timer" @click="start">开始</button>
     <button class="button is-large is-danger" v-if="timer" @click="stop">停</button>
   </div>
 </template>
@@ -12,7 +12,7 @@ const RandomPhones = [
   '13165901716', '18868935415', '13591505879', '13684787147', '15920304651',
   '13761318798', '18658726990', '15042456737', '18817787450', '18699302713',
   '13146819966', '13121864423', '13905513697', '18742418000', '13195726576',
-  '18604987878', '15845989709', '13811903168', '15915763334', '18671777020'
+  '18604987878', '15845989709', '13811903168', '15915763334', '15803999090'
 ]
 
 export default {
@@ -36,7 +36,11 @@ export default {
       this.timer = null
     },
     refresh () {
-      this.current = this.numbers[this.random(0, this.numbers.length - 1)]
+      let next
+      do {
+        next = this.numbers[this.random(0, this.numbers.length - 1)]
+      } while (this.current === next) // 避免同数值被连续刷到
+      this.current = next
     }
   },
   mounted () {
