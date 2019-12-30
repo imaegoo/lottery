@@ -50,17 +50,14 @@ h1 {
   font-size: 30px;
   margin-bottom: 6px;
 }
-
 h2 {
   font-size: 20px;
   margin-bottom: 10px;
 }
-
 .setting {
   text-align: left;
   width: 50%;
 }
-
 .textarea {
   height: 300px;
 }

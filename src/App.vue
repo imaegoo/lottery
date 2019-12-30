@@ -59,7 +59,6 @@ export default {
 body {
   margin: 0;
 }
-
 .background {
   position: fixed;
   top: 0;
@@ -69,13 +68,11 @@ body {
   background-image: url('./assets/bg-1.png');
   background-size: cover;
 }
-
 #app {
   font-family: 'Microsoft YaHei', 'SimHei';
   text-align: center;
   color: #ffffff;
 }
-
 .nav {
   background-color: transparent;
   position: fixed;
@@ -83,7 +80,6 @@ body {
   right: 10px;
   display: flex;
 }
-
 .nav .nav-item {
   cursor: pointer;
   width: 4rem;
@@ -91,11 +87,9 @@ body {
   line-height: 3.25rem;
   color: #ffffff;
 }
-
 .nav .nav-item:hover {
   background-color: rgba(255, 255, 255, 0.5);
 }
-
 .component {
   position: fixed;
   top: 3.25rem;
@@ -107,7 +101,6 @@ body {
   justify-content: center;
   overflow: auto;
 }
-
 ::selection {
   background-color: rgba(255, 255, 0, 0.5);
 }

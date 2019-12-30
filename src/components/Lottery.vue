@@ -87,20 +87,16 @@ export default {
 h1 {
   font-size: 30px;
 }
-
 h2 {
   font-size: 20px;
 }
-
 .current {
   font-size: 200px;
   margin-bottom: 50px;
 }
-
 .button.is-large {
   width: 100px;
 }
-
 .table {
   position: fixed;
   left: 20px;
@@ -108,7 +104,6 @@ h2 {
   background-color: transparent;
   color: #ffffff;
 }
-
 .table thead td, .table thead th {
   color: #ffffff;
 }
