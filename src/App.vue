@@ -21,13 +21,11 @@
 <script>
 import Lottery from './components/Lottery.vue'
 import Call from './components/Call.vue'
-import Rotate from './components/Rotate.vue'
 import Setting from './components/Setting.vue'
 
 const Components = [
   { path: 'Lottery', name: '抽奖' },
   { path: 'Call', name: '拨号' },
-  { path: 'Rotate', name: '转盘' },
   { path: 'Setting', name: '设置' }
 ]
 
@@ -36,7 +34,6 @@ export default {
   components: {
     Lottery,
     Call,
-    Rotate,
     Setting
   },
   data () {
