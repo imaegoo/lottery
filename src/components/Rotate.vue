@@ -6,18 +6,18 @@
           :style="{transform: `rotate(${currentAngle}deg)`}" />
       <div class="pointer" @click="startArrow"></div>
     </div>
-    <div class="text" v-if="currentAward">{{ currentAward }}</div>
+    <div class="text" v-if="currentAward" v-html="currentAward"></div>
   </div>
 </template>
 
 <script>
 const awards = [
-  '侯校长发红包', // 30%
-  '工作日不扣工资，休息一天', // 10%
-  '与黄书记共进晚餐', // 10%
-  '工作日不扣工资，休息半天', // 10%
-  '教研组最美（最帅）的人请喝奶茶', // 15%
-  '跟校长们合张影' // 25%
+  '侯校长发6个6.66元的红包', // 20%
+  '阳春三月，遇见美好，带薪休息一天<br>（马校、张校代课）', // 16%
+  '黄书记请喝奶茶', // 16%
+  '阳春三月，遇见美好，带薪休息半天<br>（樊校代课）', // 16%
+  '我和电影有个约会', // 16%
+  '2020鼠你有福' // 16%
 ]
 
 export default {
@@ -40,15 +40,15 @@ export default {
     },
     getAward() {
       let randomNum = Math.random()
-      if (randomNum < 0.3) {
+      if (randomNum < 0.2) {
         return 0
-      } else if (randomNum < 0.4) {
+      } else if (randomNum < 0.36) {
         return 1
-      } else if (randomNum < 0.5) {
+      } else if (randomNum < 0.52) {
         return 2
-      } else if (randomNum < 0.6) {
+      } else if (randomNum < 0.68) {
         return 3
-      } else if (randomNum < 0.75) {
+      } else if (randomNum < 0.84) {
         return 4
       } else if (randomNum <= 1) {
         return 5
