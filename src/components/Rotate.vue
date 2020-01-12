@@ -7,17 +7,20 @@
       <div class="pointer" @click="startArrow"></div>
     </div>
     <div class="text" v-if="currentAward" v-html="currentAward"></div>
+    <div class="histories" v-show="false">
+      <span v-for="(history, index) in histories" :key="index">{{ history }}</span>
+    </div>
   </div>
 </template>
 
 <script>
 const awards = [
-  '侯校长发6个6.66元的红包', // 20%
-  '阳春三月，遇见美好，带薪休息一天<br>（马校、张校代课）', // 16%
-  '黄书记请喝奶茶', // 16%
-  '阳春三月，遇见美好，带薪休息半天<br>（樊校代课）', // 16%
-  '我和电影有个约会', // 16%
-  '2020鼠你有福' // 16%
+  '带薪休假半天<br>（阳春三月 遇见美好 带薪休假半天，樊校长代课）',
+  '我吃牛排要你陪<br>（蔡主任今天陪你去正弘城吃牛排并买单）',
+  '我喝奶茶你买单<br>（黄书记请你喝奶茶）',
+  '我和电影有个约会<br>（冯校长送你三张电影票）',
+  '带薪休假1天<br>（初夏五月 向美而行 带薪休假1天，马校长代课）',
+  '鲜花送佳人<br>（张校长送你一束鲜花并送你回家）'
 ]
 
 export default {
@@ -28,31 +31,28 @@ export default {
     return {
       currentAngle: 0,
       times: 0,
-      currentAward: '等待抽奖'
+      currentAward: '等待抽奖<br>',
+      histories: []
     }
   },
   methods: {
     startArrow() {
-      if (this.currentAward === '正在抽奖') return
+      if (this.currentAward === '正在抽奖<br>') return
       let award = this.getAward()
       this.getAngle(award)
       this.setCurrentAward(award)
     },
     getAward() {
-      let randomNum = Math.random()
-      if (randomNum < 0.2) {
-        return 0
-      } else if (randomNum < 0.36) {
-        return 1
-      } else if (randomNum < 0.52) {
-        return 2
-      } else if (randomNum < 0.68) {
-        return 3
-      } else if (randomNum < 0.84) {
-        return 4
-      } else if (randomNum <= 1) {
-        return 5
+      let randomNum
+      if (this.histories.length >= awards.length) {
+        randomNum = this.histories.shift()
+      } else {
+        do {
+          randomNum = Math.floor(Math.random() / (1 / awards.length))
+        } while (this.histories.some((history) => history === randomNum))
       }
+      this.histories.push(randomNum)
+      return randomNum
     },
     getAngle(award) {
       this.times++
@@ -93,5 +93,10 @@ export default {
   margin-top: 20px;
   font-size: 26px;
   font-weight: bold;
+}
+.histories {
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
 }
 </style>
